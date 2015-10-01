@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+    <!--
+  * Please see the included README.md file for license terms and conditions.
+  -->
+
+    <head>
+        <link rel="stylesheet" type="text/css" href="icon-fonts/elusive-icons-2.0.0/css/elusive-icons.css">
+        <link rel="stylesheet" type="text/css" href="icon-fonts/font-awesome-4.3.0/css/font-awesome.css">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="app_framework/2.1/css/af.ui.min.css">
+        <link rel="stylesheet" type="text/css" href="app_framework/2.1/css/icons.min.css">
+        <title>Get MP3 Video</title>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+        <!--
+  * The "meta viewport" tag (below) helps your app size appropriately to a device's ideal viewport.
+  * Note that Windows device viewports work better when initialized using the @viewport CSS rule.
+  * For a quick overview of "meta viewport" and @viewport, see this article:
+  *   http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-dont-forget-the-viewport-meta-tag
+  * To see how it works, try your app on a real device with and without a "meta viewport" tag.
+  * Additional useful references include:
+  *   http://www.quirksmode.org/mobile/viewports.html
+  *   http://www.quirksmode.org/mobile/metaviewport/devices.html
+  *   https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html
+-->
+
+        <!-- <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1"> -->
+        <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1, maximum-scale=2"> -->
+
+        <style>
+            /* following three (cascaded) are equivalent to above three meta viewport statements */
+            /* see http://www.quirksmode.org/blog/archives/2014/05/html5_dev_conf.html */
+            /* see http://dev.w3.org/csswg/css-device-adapt/ */
+                @-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }          @viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
+                @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }                   @viewport { user-zoom: fixed ; min-zoom: 100% ; }
+                /*@-ms-viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }   @viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }*/
+        </style>
+
+        <link rel="stylesheet" href="css/app.css">
+        <link rel="stylesheet" type="text/css" href="css/index_main.less.css" class="main-less">
+        <link rel="stylesheet" type="text/css" href="css/index_main.less.css" class="main-less">
+
+        <!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
+        <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work below -->
+        <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
+
+        <!-- Recommended location for your JavaScript libraries -->
+        <!-- These library references (below) are just examples to give you the general idea... -->
+        <!-- <script src="lib/mc/hammer.js"></script> -->
+        <!-- <script src="lib/ft/fastclick.js"></script> -->
+
+        <!--
+  * cordova.js is a phantom lib for "Cordova HTML5 web app," it does nothing in a "Standard HTML5 web app"
+  * Seeing a "Failed to load resource: net::ERR_FILE_NOT_FOUND" message caused by this "cordova.js" script?
+  * The cordova.js script is required if you convert your "Standard HTML5" project into a "Cordova" project.
+  * You can safely ignore the error or comment out this line if you will not be developing a Cordova app.
+-->
+        <script src="cordova.js" id="xdkJScordova_"></script>
+
+        <!--My Scripts-->
+        <script src="js/class.App.js" type="application/javascript"></script>
+        <script src="js/class.AppSetting.js" type="application/javascript"></script>
+        <!--End of my scripts-->
+
+        <script src="js/app.js"></script>
+        <!-- for your event code, see README and file comments for details -->
+		<script src="js/init-app.js"></script>
+
+        <!-- for your init code, see README and file comments for details -->
+        <script src="xdk/init-dev.js"></script>
+        <!-- normalizes device and document ready events, see file for details -->
+        <!--            
+            You may substitute jQuery for the App Framework selector library.
+            See http://app-framework-software.intel.com/documentation.php#afui/afui_jquery
+        -->
+
+        <script type="application/javascript" src="app_framework/2.1/appframework.js"></script>
+        <script type="application/javascript" src="app_framework/2.1/appframework.ui.js" data-ver="1"></script>
+        <script type="application/javascript" src="app_framework/themeRelease.js"></script>
+        <script type="application/javascript" src="js/index_user_scripts.js"></script>
+        <script type="application/javascript" src="app_framework/pageChangeRepeater.js"></script>
+        <script type="application/javascript" src="xdk/ad/af_subpage.js"></script>
+
+    </head>
+
+    <body id="afui" class="android light">
+
+        <!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
+        <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work above -->
+        <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
+        <header class="wrapping-col wrap-element uib_w_1" data-uib="app_framework/header" data-ver="2" id="af-header-0">
+            <h1>Get MP3 Video</h1>
+        </header>
+        <header class="wrapping-col wrap-element uib_w_10" data-uib="app_framework/header" data-ver="2" id="af-header-1">
+            <h1>Download</h1>
+            <a class="button widget uib_w_11 header-right d-margins icon magnifier" data-uib="app_framework/button" data-ver="1" id="search-btn"></a>
+        </header>
+        <header class="wrapping-col wrap-element uib_w_22 with-back" data-uib="app_framework/header" data-ver="2" id="af-header-2"><a class="button backButton">Back</a>
+            <h1>About</h1>
+        </header>
+        <header class="wrapping-col wrap-element uib_w_23 with-back" data-uib="app_framework/header" data-ver="2" id="af-header-3"><a class="button backButton">Back</a>
+            <h1>Settings</h1>
+        </header>
+        <header class="wrapping-col wrap-element uib_w_26" data-uib="app_framework/header" data-ver="2" id="af-header-4">
+            <h1></h1>
+        </header>
+        <div class="uwrap" id="content">
+
+            <div class="upage panel" id="mainpage" data-header="af-header-0" data-footer="af-footer-0">
+                <div class="upage-content ac0 content-area vertical-col left" id="uib_page_2">
+                    <div class="grid grid-pad urow uib_row_2 row-height-2" data-uib="layout/row" data-ver="0">
+                        <div class="col uib_col_4 col-0_12-12" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <div class="table-thing with-label widget uib_w_9 search-box-top-margin" data-uib="app_framework/input" data-ver="1">
+                                    <input class="wide-control" placeholder="e.g http://youtube.com/watch?v=ohVGMWJiSr" type="text" name="you-link" id="you-link">
+                                </div><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <span class="uib_shim"></span>
+                    </div>
+                    <div class="grid grid-pad urow uib_row_1 row-height-1" data-uib="layout/row" data-ver="0">
+                        <div class="col uib_col_2 col-0_2-12_2-2" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <div class="col uib_col_3 col-0_8-12_8-10" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+                                <a class="button widget uib_w_7 d-margins fa fa-youtube" data-uib="app_framework/button" data-ver="1" id="you-btn"> Get MP3 Video</a><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <div class="col uib_col_1 col-0_2-12_2-10" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+                                <span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <span class="uib_shim"></span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="upage vertical-col left panel" id="search_page" data-header="af-header-1" data-footer="af-footer-1">
+
+                <div class="grid grid-pad urow uib_row_3 row-height-3" data-uib="layout/row" data-ver="0">
+                    <div class="col uib_col_5 col-0" data-uib="layout/col" data-ver="0">
+                        <div class="widget-container content-area vertical-col">
+
+                            <div class="widget uib_w_12 scale-image d-margins" data-uib="media/img" data-ver="0">
+                                <figure class="figure-align">
+                                    <img src="images/Strabburg.jpg">
+                                    <figcaption data-position="bottom"></figcaption>
+                                </figure>
+                            </div><span class="uib_shim"></span>
+                        </div>
+                    </div>
+                    <span class="uib_shim"></span>
+                </div>
+
+                <div class="grid grid-pad urow uib_row_4 row-height-4" data-uib="layout/row" data-ver="0">
+                    <div class="col uib_col_8 col-0_6-12" data-uib="layout/col" data-ver="0">
+                        <div class="widget-container content-area vertical-col">
+
+                            <a class="button widget uib_w_13 d-margins icon headset slate" data-uib="app_framework/button" data-ver="1" id="get-mp3"> Get MP3</a><span class="uib_shim"></span>
+                        </div>
+                    </div>
+                    <div class="col uib_col_7 col-0_6-12" data-uib="layout/col" data-ver="0">
+                        <div class="widget-container content-area vertical-col">
+
+                            <a class="button widget uib_w_14 d-margins icon tv slate" data-uib="app_framework/button" data-ver="1" id="get-video"> Get Video</a><span class="uib_shim"></span>
+                        </div>
+                    </div>
+                    <span class="uib_shim"></span>
+                </div>
+
+                <div class="grid grid-pad urow uib_row_6 row-height-6" data-uib="layout/row" data-ver="0">
+                    <div class="col uib_col_10 col-0_12-12" data-uib="layout/col" data-ver="0">
+                        <div class="widget-container content-area vertical-col">
+
+                            <div class="widget uib_w_15 d-margins" data-uib="media/text" data-ver="0">
+                                <div class="widget-container left-receptacle"></div>
+                                <div class="widget-container right-receptacle"></div>
+                                <div>
+                                    <p class="ellipsis" style="-webkit-line-clamp: 1;">Name: <span id="file-name"></span>This is a placeholder name</p>
+                                </div>
+                            </div>
+                            <div class="widget uib_w_20 d-margins" data-uib="media/text" data-ver="0">
+                                <div class="widget-container left-receptacle"></div>
+                                <div class="widget-container right-receptacle"></div>
+                                <div>
+                                    <p class="ellipsis" style="-webkit-line-clamp: 1;">Size: <span id="file-size">4022kb</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="widget uib_w_21 d-margins" data-uib="media/text" data-ver="0">
+                                <div class="widget-container left-receptacle"></div>
+                                <div class="widget-container right-receptacle"></div>
+                                <div>
+                                    <p class="ellipsis" style="-webkit-line-clamp: 2;">Description: <span id="file-desc">This is a short description of the file</span>
+                                    </p>
+                                </div>
+                            </div><span class="uib_shim"></span>
+                        </div>
+                    </div>
+                    <span class="uib_shim"></span>
+                </div>
+            </div>
+            <div class="upage vertical-col left panel" id="settings-page" data-header="af-header-3" data-footer="none"></div>
+            <div class="upage vertical-col left panel" id="about-page" data-header="af-header-2" data-footer="none">
+                <div class="widget uib_w_24 d-margins center-align" data-uib="media/text" data-ver="0" id="about-me-really">
+                    <div class="widget-container left-receptacle"></div>
+                    <div class="widget-container right-receptacle"></div>
+                    <div>
+                        <p>GET MP3 VIDEO mobile app &amp; website are sole property of Okafor Anthony Ikenna.</p>
+                        <p>For more information, you can contact me via the following media:</p>
+                        <p>Email:</p>
+                        <p>ikenna@getmp3video.com</p>
+                        <p>iykpay@gmail.com</p>
+                        <p>Phone/Whatsapp:</p>
+                        <p>+2347037223596</p>
+                        <p>Facebook:</p>
+                        <p>www.facebook.com/ianthony3</p>
+                        <p>Twitter:</p>
+                        <p>@_alphaspy</p>
+                    </div>
+                </div>
+            </div>
+            <div class="upage panel" id="work_page" data-header="af-header-4" data-footer="none">
+                <div class="upage-outer">
+                    <div class="upage-content ac0 content-area vertical-col left" id="page_67_16"></div>
+                    <nav class="af-sidemenu inner-element uib_w_25" data-uib="app_framework/side_menu_area" data-ver="1">
+                        <div class="sidebar-content">
+                            <div class="col uib_col_11 single-col" data-uib="layout/col" data-ver="0">
+                                <div class="widget-container content-area vertical-col">
+                                    <span class="uib_shim"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <footer class="wrap-element uib_w_16" data-uib="app_framework/footer" data-ver="1" id="af-footer-1"><a class="widget uib_w_17 d-margins icon settings" data-uib="app_framework/button" data-ver="1" id="dld-settings-btn">Settings</a><a class="widget uib_w_18 d-margins icon info" data-uib="app_framework/button" data-ver="1" id="dld-about-btn" href="#about-page"
+            data-transition="fade">About</a>
+            <a class="widget uib_w_19 d-margins icon close" data-uib="app_framework/button" data-ver="1" id="dld-exit-btn">Exit</a>
+        </footer>
+        <footer class="wrap-element uib_w_2" data-uib="app_framework/footer" data-ver="1" id="af-footer-0">
+            <a class="widget uib_w_5 d-margins icon settings" data-uib="app_framework/button" data-ver="1" id="setting-btn">Settings</a><a class="widget uib_w_4 d-margins icon info" data-uib="app_framework/button" data-ver="1" id="about-btn">About</a>
+            <a class="widget uib_w_3 d-margins icon close" data-uib="app_framework/button" data-ver="1" id="exit-btn">Exit</a>
+        </footer>
+    </body>
+
+</html>
